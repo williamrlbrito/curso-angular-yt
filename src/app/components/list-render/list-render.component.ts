@@ -16,7 +16,7 @@ export class ListRenderComponent {
   constructor(private listService: ListService) {}
 
   ngOnInit(): void {
-    this.animals = this.listService.get();
+    this.listService.get().subscribe((animals) => (this.animals = animals));
   }
 
   showAge(animal: Animal) {

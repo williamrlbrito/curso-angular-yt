@@ -21,4 +21,8 @@ export class ListService {
     this.animals = this.animals.filter((f) => f.name !== animal.name);
     return this.animals;
   }
+
+  getItem(id: number): Observable<Animal> {
+    return this.http.get<Animal>(`${this.apiUrl}/${id}`);
+  }
 }
